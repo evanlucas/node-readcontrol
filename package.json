@@ -2,7 +2,7 @@
   "name": "readcontrol",
   "version": "0.0.1",
   "description": "Read Debian control files",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "test": "mocha -R spec"
   },
