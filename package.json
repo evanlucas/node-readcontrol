@@ -1,0 +1,27 @@
+{
+  "name": "readcontrol",
+  "version": "0.0.1",
+  "description": "Read Debian control files",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/evanlucas/node-readcontrol"
+  },
+  "keywords": [
+    "debian",
+    "control"
+  ],
+  "author": "Evan Lucas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/evanlucas/node-readcontrol/issues"
+  },
+  "homepage": "https://github.com/evanlucas/node-readcontrol",
+  "devDependencies": {
+    "should": "~2.1.1",
+    "mocha": "~1.16.2"
+  }
+}
