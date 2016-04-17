@@ -1,6 +1,7 @@
 var crw = require('../lib/index')
   , path = require('path')
   , should = require('should')
+  , fs = require('fs')
 
 describe('controlrw', function() {
   describe('read()', function() {
@@ -42,6 +43,34 @@ describe('controlrw', function() {
           out.should.eql({})
           done()
         })
+      })
+    })
+  })
+
+  describe('parse()', function() {
+    describe('valid control file', function() {
+      it('should return an object', function() {
+        var controlFile = path.join(__dirname, 'control')
+        var contents = fs.readFileSync(controlFile, 'utf8')
+        var out = crw.parse(contents)
+        out.should.be.type('object')
+        out.should.haveOwnProperty('package')
+          .eql('com.ia.iconbounce')
+        out.should.haveOwnProperty('name')
+          .eql('IconBounce')
+        out.should.haveOwnProperty('depends')
+          .eql(['mobilesubstrate'])
+        out.should.haveOwnProperty('version')
+          .eql('2.0.0')
+      })
+    })
+    describe('empty control file', function() {
+      it('should return object', function() {
+        var controlFile = path.join(__dirname, 'control_invalid')
+        var contents = fs.readFileSync(controlFile, 'utf8')
+        var out = crw.parse(contents)
+        out.should.be.type('object')
+        out.should.eql({})
       })
     })
   })
